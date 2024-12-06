@@ -80,13 +80,11 @@ INSERT INTO "CREDIT_PACKAGE" (name, credit_amount, price) values
 
 --1.
 -寫入購買資料
-INSERT INTO "CREDIT_PURCHASE" (user_id, credit_package_id, purchased_credits, price_paid) values
-((select id from "USER" WHERE email ='wXlTq@hexschooltest.io' ),--用email取出會員id
-(select id from "CREDIT_PACKAGE" WHERE name ='14 堂組合包方案'),--用name 取出組合包id
-(select credit_amount from "CREDIT_PACKAGE" WHERE name ='14 堂組合包方案'),--用name 取出組合包的堂數
-
-(select price from "CREDIT_PACKAGE" WHERE name ='14 堂組合包方案'));--用name 取出組合包的價格
-
+insert into "CREDIT_PURCHASE" (user_id, credit_package_id, purchased_credits, price_paid) values
+((select id from "USER" where email = 'wXlTq@hexschooltest.io'),
+  (select id from "CREDIT_PACKAGE" where name = '14 堂組合包方案'),
+  (select credit_amount from "CREDIT_PACKAGE" where name = '14 堂組合包方案'),
+  (select price from "CREDIT_PACKAGE" where name = '14 堂組合包方案'));
 
 
 
