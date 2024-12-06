@@ -70,21 +70,22 @@ INSERT INTO "CREDIT_PACKAGE" (name, credit_amount, price) values
 
 -- 2-2. 新增：在 `CREDIT_PURCHASE` 資料表，新增三筆資料：（請使用 name 欄位做子查詢）
     -- 1. `王小明` 購買 `14 堂組合包方案`
-	--寫入購買資料
-
     -- 2. `王小明` 購買 `21 堂組合包方案`
-
-
     -- 3. `好野人` 購買 `14 堂組合包方案`
 	--寫入購買資料
 
---1.
--寫入購買資料
-insert into "CREDIT_PURCHASE" (user_id, credit_package_id, purchased_credits, price_paid) values
-((select id from "USER" WHERE email = 'wXlTq@hexschooltest.io'),
-  (select id from "CREDIT_PACKAGE" WHERE name = '14 堂組合包方案'),
-  (select credit_amount from "CREDIT_PACKAGE" WHERE name = '14 堂組合包方案'),
-  (select price from "CREDIT_PACKAGE" WHERE name = '14 堂組合包方案'));
+--寫入購買資料
+INSERT INTO "CREDIT_PURCHASE" (user_id, credit_package_id, purchased_credits, price_paid) values
+(
+--用email取出會員id
+(select id from "USER" WHERE email ='wXlTq@hexschooltest.io' ),
+--用name 取出組合包id
+(select id from "CREDIT_PACKAGE" WHERE name ='14 堂組合包方案'),
+--用name 取出組合包的堂數
+(select credit_amount from "CREDIT_PACKAGE" WHERE name ='14 堂組合包方案'),
+--用name 取出組合包的價格
+(select price from "CREDIT_PACKAGE" WHERE name ='14 堂組合包方案'));
+
 
 
 
