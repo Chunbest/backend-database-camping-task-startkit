@@ -86,8 +86,29 @@ INSERT INTO "CREDIT_PURCHASE" (user_id, credit_package_id, purchased_credits, pr
 --用name 取出組合包的價格
 (select price from "CREDIT_PACKAGE" WHERE name ='14 堂組合包方案'));
 
+--寫入購買資料
+INSERT INTO "CREDIT_PURCHASE" (user_id, credit_package_id, purchased_credits, price_paid) values
+(
+--用email取出會員id
+(select id from "USER" WHERE email ='wXlTq@hexschooltest.io' ),
+--用name 取出組合包id
+(select id from "CREDIT_PACKAGE" WHERE name ='21 堂組合包方案'),
+--用name 取出組合包的堂數
+(select credit_amount from "CREDIT_PACKAGE" WHERE name ='21 堂組合包方案'),
+--用name 取出組合包的價格
+(select price from "CREDIT_PACKAGE" WHERE name ='21 堂組合包方案'));
 
-
+--寫入購買資料
+INSERT INTO "CREDIT_PURCHASE" (user_id, credit_package_id, purchased_credits, price_paid) values
+(
+--用email取出會員id
+(select id from "USER" WHERE email ='richman@hexschooltest.io' ),
+--用name 取出組合包id
+(select id from "CREDIT_PACKAGE" WHERE name ='14 堂組合包方案'),
+--用name 取出組合包的堂數
+(select credit_amount from "CREDIT_PACKAGE" WHERE name ='14 堂組合包方案'),
+--用name 取出組合包的價格
+(select price from "CREDIT_PACKAGE" WHERE name ='14 堂組合包方案'));
 
 -- ████████  █████   █    ████   
 --   █ █   ██    █  █         ██ 
