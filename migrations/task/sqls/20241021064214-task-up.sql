@@ -25,12 +25,17 @@ INSERT INTO "USER" (name, email, role) values
 
 -- 1-2 修改：用 Email 找到 李燕容、肌肉棒子、Q太郎，如果他的 Role 為 USER 將他的 Role 改為 COACH
 
---李燕容
-
+UPDATE "USER"
+SET ROLE ='COACH'
+WHERE email = 'lee2000@hexschooltest.io';
 --肌肉棒子
-
-
+UPDATE "USER"
+SET ROLE ='COACH'
+WHERE email = 'muscle@hexschooltest.io';
 --Q太郎
+SET ROLE ='COACH'
+WHERE email = 'starplatinum@hexschooltest.io';
+
 
 
 -- 1-3 刪除：刪除USER 資料表中，用 Email 找到透明人，並刪除該筆資料
