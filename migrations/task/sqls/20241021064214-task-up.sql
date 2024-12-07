@@ -192,7 +192,8 @@ where user_id = (
 -- 3-4 刪除：新增一個專長 空中瑜伽 至 SKILL 資料表，之後刪除此專長。
 
 --新增
-insert into "SKILL" (name) values ("空中瑜伽");
+insert into "SKILL" (name) values ('空中瑜伽');
+
 --刪除
 delete from "SKILL" where name = '空中瑜伽';
 
