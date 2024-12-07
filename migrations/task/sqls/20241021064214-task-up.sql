@@ -193,11 +193,8 @@ where user_id = (
 
 --新增
 insert into "SKILL" (name) values ("空中瑜伽");
-select * from "SKILL";
-
 --刪除
 delete from "SKILL" where name = '空中瑜伽';
-select * from "SKILL";
 
 
 --  ████████  █████   █    █   █ 
