@@ -264,6 +264,14 @@ insert into "COURSE_BOOKING" (user_id, course_id, booking_at, status) values
     -- 1. 取消預約時間`cancelled_at` 設為2024-11-24 17:00:00
     -- 2. 狀態`status` 設定為課程已取消
 
+update "COURSE_BOOKING" 
+--更新狀態為取消, 取消時間為2024-11-24 17:00:00
+set cancelled_at ='2024-11-24 17:00:00' , status = '課程已取消'
+-- 從user取得 user_id是王小明
+where user_id = (select id from "USER" where email = 'wXlTq@hexschooltest.io')
+-- 從課程取得 教練是 李燕容
+and course_id = (select id from "COURSE" where user_id = (select id from "USER" where email = 'lee2000@hexschooltest.io'));
+
 -- 5-3. 新增：`王小明`再次預約 `李燕容`   的課程，請在`COURSE_BOOKING`新增一筆資料：
     -- 1. 預約人設為`王小明`
     -- 2. 預約時間`booking_at` 設為2024-11-24 17:10:25
