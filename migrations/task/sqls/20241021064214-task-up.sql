@@ -181,27 +181,23 @@ insert into "COACH_LINK_SKILL" (coach_id,skill_id) values
 update "COACH" 
 set experience_years = 3 
 where user_id = (
-    select id 
-    from "USER" 
-    where email = 'muscle@hexschooltest.io');
+    select id from "USER" where email = 'muscle@hexschooltest.io');
 --教練Q太郎
 update "COACH" 
 set experience_years = 5 
 where user_id = (
-    select id 
-    from "USER" 
-    where email = 'starplatinum@hexschooltest.io');
+	select id from "USER" where email = 'starplatinum@hexschooltest.io');
 
 
 -- 3-4 刪除：新增一個專長 空中瑜伽 至 SKILL 資料表，之後刪除此專長。
 
 --新增
-insert into "SKILL" (name) values ("空中瑜伽");
-select * from "SKILL";
+--insert into "SKILL" (name) values ("空中瑜伽");
+--select * from "SKILL";
 
 --刪除
-delete from "SKILL" where name = '空中瑜伽';
-select * from "SKILL";
+--delete from "SKILL" where name = '空中瑜伽';
+--select * from "SKILL";
 
 
 --  ████████  █████   █    █   █ 
@@ -221,6 +217,7 @@ select * from "SKILL";
     -- 6. 最大授課人數`max_participants` 設定為10
     -- 7. 授課連結設定`meeting_url`為 https://test-meeting.test.io
 
+/*
 insert into "COURSE" (user_id, skill_id, name, start_at, end_at, max_participants, meeting_url) 
 values ((select id from "USER" where email = 'lee2000@hexschooltest.io'),
 (select id from "SKILL" where name = '重訓'),
@@ -229,6 +226,7 @@ values ((select id from "USER" where email = 'lee2000@hexschooltest.io'),
 '2024-11-25 16:00:00',
 10,
 'https://test-meeting.test.io');
+*/
 
 -- ████████  █████   █    █████ 
 --   █ █   ██    █  █     █     
@@ -248,7 +246,7 @@ values ((select id from "USER" where email = 'lee2000@hexschooltest.io'),
         -- 1. 預約人設為 `好野人`
         -- 2. 預約時間`booking_at` 設為2024-11-24 16:00:00
         -- 3. 狀態`status` 設定為即將授課
-  --第二筆
+/*
 insert into "COURSE_BOOKING" (user_id, course_id, booking_at, status) values
 --第一筆
 (
@@ -262,6 +260,7 @@ insert into "COURSE_BOOKING" (user_id, course_id, booking_at, status) values
   (select id from "COURSE" where user_id = (select id from "USER" where email = 'lee2000@hexschooltest.io')),
   '2024-11-24 16:00:00',
   '即將授課');
+  */
 
 -- 5-2. 修改：`王小明`取消預約 `李燕容` 的課程，請在`COURSE_BOOKING`更新該筆預約資料：
     -- 1. 取消預約時間`cancelled_at` 設為2024-11-24 17:00:00
