@@ -215,7 +215,7 @@ delete from "SKILL" where name = '空中瑜伽';
     -- 6. 最大授課人數`max_participants` 設定為10
     -- 7. 授課連結設定`meeting_url`為 https://test-meeting.test.io
 
-/*
+
 insert into "COURSE" (user_id, skill_id, name, start_at, end_at, max_participants, meeting_url) 
 values ((select id from "USER" where email = 'lee2000@hexschooltest.io'),
 (select id from "SKILL" where name = '重訓'),
@@ -224,7 +224,7 @@ values ((select id from "USER" where email = 'lee2000@hexschooltest.io'),
 '2024-11-25 16:00:00',
 10,
 'https://test-meeting.test.io');
-*/
+
 
 -- ████████  █████   █    █████ 
 --   █ █   ██    █  █     █     
