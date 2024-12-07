@@ -222,15 +222,13 @@ select * from "SKILL";
     -- 7. 授課連結設定`meeting_url`為 https://test-meeting.test.io
 
 insert into "COURSE" (user_id, skill_id, name, start_at, end_at, max_participants, meeting_url) 
-values (
-(select id from "USER" where email = 'lee2000@hexschooltest.io'),
+values ((select id from "USER" where email = 'lee2000@hexschooltest.io'),
 (select id from "SKILL" where name = '重訓'),
 '重訓基礎課',
 '2024-11-25 14:00:00',
 '2024-11-25 16:00:00',
 10,
-' https://test-meeting.test.io'
-);
+'https://test-meeting.test.io');
 
 -- ████████  █████   █    █████ 
 --   █ █   ██    █  █     █     
@@ -245,10 +243,25 @@ values (
         -- 1. 預約人設為`王小明`
         -- 2. 預約時間`booking_at` 設為2024-11-24 16:00:00
         -- 3. 狀態`status` 設定為即將授課
+
     -- 2. 新增： `好野人` 預約 `李燕容` 的課程
         -- 1. 預約人設為 `好野人`
         -- 2. 預約時間`booking_at` 設為2024-11-24 16:00:00
         -- 3. 狀態`status` 設定為即將授課
+  --第二筆
+insert into "COURSE_BOOKING" (user_id, course_id, booking_at, status) values
+--第一筆
+(
+(select id from "USER" where email = 'wXlTq@hexschooltest.io'),
+  (select id from "COURSE" where user_id = (select id from "USER" where email = 'lee2000@hexschooltest.io')),
+  '2024-11-24 16:00:00',
+  '即將授課'),
+  --第二筆
+(
+(select id from "USER" where email = 'richman@hexschooltest.io'),
+  (select id from "COURSE" where user_id = (select id from "USER" where email = 'lee2000@hexschooltest.io')),
+  '2024-11-24 16:00:00',
+  '即將授課');
 
 -- 5-2. 修改：`王小明`取消預約 `李燕容` 的課程，請在`COURSE_BOOKING`更新該筆預約資料：
     -- 1. 取消預約時間`cancelled_at` 設為2024-11-24 17:00:00
