@@ -277,6 +277,17 @@ and course_id = (select id from "COURSE" where user_id = (select id from "USER" 
     -- 2. 預約時間`booking_at` 設為2024-11-24 17:10:25
     -- 3. 狀態`status` 設定為即將授課
 
+insert into "COURSE_BOOKING" (user_id, course_id, booking_at, status) values
+(
+--會員是王小名
+(select id from "USER" where email = 'wXlTq@hexschooltest.io'),
+--教練是李燕容
+(select id from "COURSE" where user_id = (select id from "USER" where email = 'lee2000@hexschooltest.io')),
+--預約時間
+'2024-11-24 17:10:25',
+--狀態
+'即將授課');
+
 -- 5-4. 查詢：取得王小明所有的預約紀錄，包含取消預約的紀錄
 
 -- 5-5. 修改：`王小明` 現在已經加入直播室了，請在`COURSE_BOOKING`更新該筆預約資料（請注意，不要更新到已經取消的紀錄）：
